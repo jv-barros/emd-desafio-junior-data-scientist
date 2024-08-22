@@ -14,6 +14,7 @@
 - [x] Visualize API Data
     - [x] `preview_data.py` - Create File
 - [x] Create file `to-do-list.md`
+- [x] Create file `Create image_running_scripts.pdf`
 
 
-`preview_data.py` - Terminal print 
+`preview_data.py` - Sreamlit view  
