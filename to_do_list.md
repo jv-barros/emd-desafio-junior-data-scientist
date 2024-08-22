@@ -14,3 +14,6 @@
 - [x] Visualize API Data
     - [x] `preview_data.py` - Create File
 - [x] Create file `to-do-list.md`
+
+
+`preview_data.py` - Terminal print 
