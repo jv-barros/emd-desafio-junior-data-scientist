@@ -1,6 +1,7 @@
 import basedosdados as bd
 
 # Function to count the total number of calls on a specific date
+# Question 1 
 def get_total_chamados_by_date(date):
     query = f"""
     SELECT COUNT(*) AS total_chamados
@@ -10,6 +11,7 @@ def get_total_chamados_by_date(date):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to find the most frequent type of call on a specific date
+# Question 2
 def get_most_frequent_tipo_by_date(date):
     query = f"""
     SELECT tipo, COUNT(*) AS quantidade
@@ -22,6 +24,7 @@ def get_most_frequent_tipo_by_date(date):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to get the top 3 neighborhoods with the most calls on a specific date
+# Question 3
 def get_top_3_bairros_by_date(date):
     query = f"""
     SELECT b.nome, COUNT(*) AS quantidade
@@ -35,6 +38,7 @@ def get_top_3_bairros_by_date(date):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to find the subprefecture with the most calls on a specific date
+# Question 4
 def get_top_subprefeitura_by_date(date):
     query = f"""
     SELECT b.subprefeitura, COUNT(*) AS quantidade
@@ -48,6 +52,7 @@ def get_top_subprefeitura_by_date(date):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to find calls without an associated neighborhood or subprefecture on a specific date
+# Question 5
 def get_chamados_without_bairro_or_subprefeitura(date):
     query = f"""
     SELECT c.id_chamado
@@ -58,6 +63,7 @@ def get_chamados_without_bairro_or_subprefeitura(date):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to count the total number of calls with a specific subtype in a date range
+# Question 6
 def get_total_chamados_by_subtype_and_date_range(subtype, start_date, end_date):
     query = f"""
     SELECT COUNT(*) AS total_chamados
@@ -68,6 +74,7 @@ def get_total_chamados_by_subtype_and_date_range(subtype, start_date, end_date):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to get calls with a specific subtype during specific events
+# Question 7 
 def get_chamados_during_events(subtype, events):
     query = f"""
     SELECT c.*
@@ -80,6 +87,7 @@ def get_chamados_during_events(subtype, events):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to count the total number of calls for each specific event
+# Question 8
 def get_total_chamados_for_each_event(subtype, events):
     query = f"""
     SELECT e.evento, COUNT(*) AS total_chamados
@@ -93,6 +101,7 @@ def get_total_chamados_for_each_event(subtype, events):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to calculate the daily average of calls for each event
+# Question 9
 def get_daily_average_calls_for_each_event(subtype, events):
     query = f"""
     SELECT 
@@ -116,6 +125,7 @@ def get_daily_average_calls_for_each_event(subtype, events):
     return bd.read_sql(query=query, billing_project_id="dados-rio-433018")
 
 # Function to calculate the daily average of calls during events and for the total period
+# Question 10
 def get_daily_average_calls_during_events_and_total(subtype, events, start_date, end_date):
     query = f"""
     WITH media_eventos AS (
